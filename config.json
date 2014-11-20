@@ -1,0 +1,11 @@
+{
+	"forbiddenDirsCommonName":
+	[
+		"simpletest",
+		"GrowthCharts",
+		"yii",
+		"vendors",
+		"extensions",
+		"views"
+	]
+}
