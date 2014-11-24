@@ -9,9 +9,9 @@
             }
 
             $noPhpClosing  = !preg_match('/\?\>/',  $contents);
-            $closingBlock  =  preg_match('/\}$/',   $contents);
-            $closingParens =  preg_match('/\)\;$/', $contents);
-            $closingArray  =  preg_match('/\]\;$/', $contents);
+            $closingBlock  =  preg_match("/\}\n*$/",   $contents);
+            $closingParens =  preg_match("/\)\;\n*$/", $contents);
+            $closingArray  =  preg_match("/\]\;\n*$/", $contents);
             $okEndOfFile   =  $noPhpClosing && ($closingBlock || $closingParens || $closingArray);
             
             if (!$okEndOfFile) {
