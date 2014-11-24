@@ -8,10 +8,10 @@
                 echo "invalid_header " . $fileInfo->getFileName() . " " . $fileInfo->getRealPath() . "\n";
             }
 
-            $noPhpClosing  = !preg_match('/\?\>/',  $contents);
-            $closingBlock  =  preg_match("/\}\n*$/",   $contents);
-            $closingParens =  preg_match("/\)\;\n*$/", $contents);
-            $closingArray  =  preg_match("/\]\;\n*$/", $contents);
+            $noPhpClosing  = !preg_match('/\?\>(\r?\n)*$/',  $contents);
+            $closingBlock  =  preg_match('/\}(\r?\n)*$/',   $contents);
+            $closingParens =  preg_match('/\)\;(\r?\n)*$/', $contents);
+            $closingArray  =  preg_match('/\]\;(\r?\n)*$/', $contents);
             $okEndOfFile   =  $noPhpClosing && ($closingBlock || $closingParens || $closingArray);
             
             if (!$okEndOfFile) {
